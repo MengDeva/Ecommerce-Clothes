@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="index.html" rel="nofollow">Home</a>
-                    <span></span> Shop1
+                    <span></span> Shop
                 </div>
             </div>
         </div>
