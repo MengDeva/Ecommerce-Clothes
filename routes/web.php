@@ -31,6 +31,10 @@ Route::get('/cart',\App\Http\Livewire\CartComponent::class)->name('shop.cart');
 
 Route::get('/checkout',\App\Http\Livewire\CheckoutComponent::class)->name('shop.checkout');
 
+Route::get('/product-category/{slug}}',\App\Http\Livewire\CategoryComponent::class)->name('product.category');
+
+Route::get('/search',\App\Http\Livewire\SearchComponent::class)->name('product.search');
+
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');
