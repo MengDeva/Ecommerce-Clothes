@@ -41,11 +41,7 @@ class ShopComponent extends Component
         else{
             $products = Product::paginate($this->pageSize);
         }
-<<<<<<< HEAD
         $categories = Category::orderBy('name','ASC')->get();
         return view('livewire.shop-component',['products'=>$products,'categories'=>$categories]);
-=======
-        return view('livewire.shop-component',['products'=>$products]);
->>>>>>> 2078603c5aa47319850b7619f9faca3a60dd8987
     }
 }
