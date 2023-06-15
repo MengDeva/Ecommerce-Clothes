@@ -14,25 +14,26 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">
-                            <table class="table shopping-summery text-center clean">
-                                <thead>
-                                <tr class="main-heading">
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Subtotal</th>
-                                    <th scope="col">Remove</th>
-                                </tr>
-                                </thead>
-                                <tbody>
                                 @if(Session::has('success_message'))
                                     <div class="alert alert-success">
                                         <strong>Success | {{Session::get('success_message')}}</strong>
                                     </div>
                                 @endif
-                                @if(Cart::count()>0)
-                                    @foreach(Cart::content() as $item)
+                                @if(Cart::instance('cart')->count()>0)
+                                        <table class="table shopping-summery text-center clean">
+                                            <thead>
+                                            <tr class="main-heading">
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col">Subtotal</th>
+                                                <th scope="col">Remove</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                    @foreach(Cart::instance('cart')->content() as $item)
                                 <tr>
                                     <td class="image product-thumbnail"><img src="{{asset('assets/imgs/shop/product-')}}{{$item->model->id}}-1.jpg" alt="#"></td>
                                     <td class="product-des product-name">
@@ -63,8 +64,6 @@
                                         <a href="#" class="text-muted" wire:click.prevent="clearAll()"> <i class="fi-rs-cross-small"></i> Clear Cart</a>
                                     </td>
                                 </tr>
-                                </tbody>
-                            </table>
                         </div>
                         <div class="cart-action text-end">
                             <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-shuffle mr-10"></i>Update Cart</a>
