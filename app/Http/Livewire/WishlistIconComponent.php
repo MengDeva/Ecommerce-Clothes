@@ -9,6 +9,6 @@ class WishlistIconComponent extends Component
     protected $listeners = ['refreshComponent'=>'$refresh'];
     public function render()
     {
-        return view('livewire.wishlish-icon-component');
+        return view('livewire.wishlist-icon-component');
     }
 }

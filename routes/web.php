@@ -29,6 +29,8 @@ Route::get('/product/{slug}',\App\Http\Livewire\DetailsComponent::class)->name('
 
 Route::get('/cart',\App\Http\Livewire\CartComponent::class)->name('shop.cart');
 
+Route::get('/wishlist',\App\Http\Livewire\WishlistComponent::class)->name('shop.wishlist');
+
 Route::get('/checkout',\App\Http\Livewire\CheckoutComponent::class)->name('shop.checkout');
 
 Route::get('/product-category/{slug}}',\App\Http\Livewire\CategoryComponent::class)->name('product.category');
