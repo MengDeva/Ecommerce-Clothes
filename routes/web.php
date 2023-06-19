@@ -49,6 +49,8 @@ Route::middleware(['auth','auth-admin'])->group(function (){
     Route::get('/admin/dashboard',\App\Http\Livewire\Admin\AdminDashboardComponent::class)->name('admin.dashboard');
     Route::get('/admin/categories',\App\Http\Livewire\Admin\AdminCategoriesComponent::class)->name('admin.categories');
     Route::get('/admin/category/add',\App\Http\Livewire\Admin\AdminAddCategoryComponent::class)->name('admin.category.add');
+    Route::get('/admin/category/edit/{category_id}',\App\Http\Livewire\Admin\AdminEditCategoryComponent::class)->name('admin.category.edit');
+    Route::get('/admin/products',\App\Http\Livewire\Admin\AdminProductComponent::class)->name('admin.products');
 });
 
 Route::middleware('auth')->group(function () {
