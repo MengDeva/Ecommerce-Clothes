@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="/" rel="nofollow">Home</a>
-                    <span></span> Add New Product
+                    <span></span> Edit Product
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        Add New Product
+                                        Edit Product
                                     </div>
                                     <div class="col-md-6">
                                         <a href="{{route('admin.products')}}" class="btn btn-success float-end">All
@@ -37,7 +37,7 @@
                                 @if(Session::has('message'))
                                     <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                                 @endif
-                                <form wire:submit.prevent="addProduct">
+                                <form wire:submit.prevent="updateProduct">
 
                                     <div class="mb-3 mt-3">
                                         <label for="name" class="form-label">Name</label>
@@ -96,8 +96,8 @@
                                     </div>
 
                                     <div class="mb-3 mt-3">
-                                        <label for="stock_status" class="form-label">Stock Status</label>
-                                        <select class="form-control" wire:model="stock_status">
+                                        <label for="stock_status" wire:model="stock_status" class="form-label">Stock Status</label>
+                                        <select class="form-control">
                                             <option value="instock">InStock</option>
                                             <option value="outofstock">OutOfStock</option>
                                         </select>
@@ -107,8 +107,8 @@
                                     </div>
 
                                     <div class="mb-3 mt-3">
-                                        <label for="featured" class="form-label">Featured</label>
-                                        <select class="form-control" name="featured" wire:model="featured">
+                                        <label for="featured" wire:model="featured" class="form-label">Featured</label>
+                                        <select class="form-control" name="featured">
                                             <option value="0">No</option>
                                             <option value="1">Yes</option>
                                         </select>
@@ -127,11 +127,13 @@
 
                                     <div class="mb-3 mt-3">
                                         <label for="image" class="form-label">Image</label>
-                                        <input type="file" name="image" class="form-control" wire:model="image"/>
-                                        @if($image)
-                                            <img src="{{$image->temporaryUrl()}}" width="120"/>
+                                        <input type="file" name="image" class="form-control" wire:model="newimage"/>
+                                        @if($newimage)
+                                            <img src="{{$newimage->temporaryUrl()}}" width="120"/>
+                                        @else
+                                            <img src="{{asset('assets/imgs/products')}}/{{$image}}" width="120"/>
                                         @endif
-                                        @error('image')
+                                        @error('newimage')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
@@ -149,7 +151,7 @@
                                         @enderror
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary float-end">Submit</button>
+                                    <button type="submit" class="btn btn-primary float-end">Update</button>
                                 </form>
                             </div>
                         </div>
@@ -159,4 +161,5 @@
         </section>
     </main>
 </div>
+
 

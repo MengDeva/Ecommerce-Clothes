@@ -1,9 +1,10 @@
 <div>
     <style>
-        nav svg{
+        nav svg {
             height: 20px;
         }
-        nav hidden{
+
+        nav hidden {
             display: block;
         }
     </style>
@@ -40,7 +41,7 @@
                                         <label for="name" class="form-label">Name</label>
                                         <input type="text" name="name" class="form-control" placeholder="Enter Category name" wire:model="name" wire:keyup="generateSlug"/>
                                         @error('name')
-                                            <p class="text-danger">{{$message}}</p>
+                                        <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">

@@ -9,10 +9,11 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Carbon\Carbon;
 
-class AdminAddProductComponent extends Component
+class AdminEditProductComponent extends Component
 {
     use WithFileUploads;
 
+    public $product_id;
     public $name;
     public $slug;
     public $short_description;
@@ -26,12 +27,32 @@ class AdminAddProductComponent extends Component
     public $image;
     public $category_id;
 
+    public $newimage;
+
+    public function mount($product_id)
+    {
+        $product = Product::find($product_id);
+        $this->product_id = $product->id;
+        $this->name = $product->name;
+        $this->slug = $product->slug;
+        $this->short_description = $product->short_description;
+        $this->description = $product->description;
+        $this->regular_price = $product->regular_price;
+        $this->sell_price = $product->sell_price;
+        $this->sku = $product;
+        $this->stock_status = $product->stock_status;
+        $this->featured = $product->featured;
+        $this->quantity = $product->quantity;
+        $this->image = $product->image;
+        $this->category_id = $product->category_id;
+    }
+
     public function generateSlug()
     {
         $this->slug = Str::slug($this->name);
     }
 
-    public function addProduct()
+    public function updateProduct()
     {
         $this->validate([
             'name' => 'required',
@@ -48,7 +69,7 @@ class AdminAddProductComponent extends Component
             'category_id' => 'required'
 
         ]);
-        $product = new Product();
+        $product = Product::find($this->product_id);
         $product->name = $this->name;
         $product->slug = $this->slug;
         $product->short_description = $this->short_description;
@@ -59,17 +80,20 @@ class AdminAddProductComponent extends Component
         $product->stock_status = $this->stock_status;
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;
-        $imageName = Carbon::now()->timestamp . '.' . $this->image->extension();
-        $this->image->storeAs('products', $imageName);
-        $product->image = $imageName;
+        if ($this->newimage) {
+            unlink('assets/imgs/products/' . $product->image);
+            $imageName = Carbon::now()->timestamp . '.' . $this->newimage->extension();
+            $this->newimage->storeAs('products', $imageName);
+            $product->image = $imageName;
+        }
         $product->category_id = $this->category_id;
         $product->save();
-        session()->flash('message', 'Product has been added successful!');
+        session()->flash('message', 'Product has been updated successful!');
     }
 
     public function render()
     {
         $categories = Category::orderBy('name', 'ASC')->get();
-        return view('livewire.admin.admin-add-product-component', ['categories' => $categories]);
+        return view('livewire.admin.admin-edit-product-component', ['categories' => $categories]);
     }
 }
