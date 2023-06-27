@@ -57,17 +57,15 @@
                                     @foreach($products as $product)
                                         <tr>
                                             <td>{{++$i}}</td>
-                                            <td><img src="{{asset('assets/imgs/products')}}/{{$product->image}}"
-                                                     alt="{{$product->name}}" width="60"/></td>
+                                            <td><img src="{{asset('assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}" width="60"/></td>
                                             <td>{{$product->name}}</td>
                                             <td>{{$product->stock_status}}</td>
                                             <td>{{$product->regular_price}}</td>
                                             <td>{{$product->category->name}}</td>
                                             <td>{{$product->created_at}}</td>
                                             <td>
-                                                <a href="{{route('admin.product.edit',['product_id'=>$product->id])}}"
-                                                   class="text-info">Edit</a>
-                                                {{--                                                <a href="#" class="text-danger" onclick="deleteConfirmation({{$category->id}})" style="margin-left: 20px ">Delete</a>--}}
+                                                <a href="{{route('admin.product.edit',['product_id'=>$product->id])}}" class="text-info">Edit</a>
+                                                <a href="#" class="text-danger" onclick="deleteConfirmation({{$product->id}})" style="margin-left: 20px ">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -82,3 +80,35 @@
         </section>
     </main>
 </div>
+
+<div class="modal" id="deleteConfirmation">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body pb-30 pt-30">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h4 class="pb-3">Do you want to delete this record?</h4>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                data-bs-target="#deleteConfirmation">Cancel
+                        </button>
+                        <button type="button" class="btn btn-danger" onclick="deleteProduct()">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@push('scripts')
+    <script>
+        function deleteConfirmation(id) {
+        @this.set('product_id', id);
+            $('#deleteConfirmation').modal('show')
+        }
+
+        function deleteProduct() {
+        @this.call('deleteProduct');
+            $('#deleteConfirmation').modal('hide')
+        }
+    </script>
+@endpush

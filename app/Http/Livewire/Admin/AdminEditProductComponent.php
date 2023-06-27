@@ -12,7 +12,6 @@ use Carbon\Carbon;
 class AdminEditProductComponent extends Component
 {
     use WithFileUploads;
-
     public $product_id;
     public $name;
     public $slug;
@@ -39,7 +38,7 @@ class AdminEditProductComponent extends Component
         $this->description = $product->description;
         $this->regular_price = $product->regular_price;
         $this->sell_price = $product->sell_price;
-        $this->sku = $product;
+        $this->sku = $product->sku;
         $this->stock_status = $product->stock_status;
         $this->featured = $product->featured;
         $this->quantity = $product->quantity;
@@ -90,7 +89,6 @@ class AdminEditProductComponent extends Component
         $product->save();
         session()->flash('message', 'Product has been updated successful!');
     }
-
     public function render()
     {
         $categories = Category::orderBy('name', 'ASC')->get();

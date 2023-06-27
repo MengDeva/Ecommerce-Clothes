@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,10 +16,10 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('short_description')->nullable();
             $table->string('description')->nullable();
-            $table->decimal('regular_price',8,2);
-            $table->decimal('sell_price',8,2)->nullable();
-            $table->string('SKU');
-            $table->enum('stock_status',['instock','outofstock']);
+            $table->decimal('regular_price', 8, 2);
+            $table->decimal('sell_price', 8, 2)->nullable();
+            $table->string('sku');
+            $table->enum('stock_status', ['instock', 'outofstock']);
             $table->boolean('featured')->default(false);
             $table->Integer('quantity');
             $table->string('image');

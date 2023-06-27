@@ -21,7 +21,7 @@
                                         <!-- MAIN SLIDES -->
                                         <div class="product-image-slider">
                                             <figure class="border-radius-10">
-                                                <img src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-2.jpg" alt="product image">
+                                                <img src="{{asset('assets/imgs/products')}}/{{$product->image}}" alt="product image">
                                             </figure>
                                             <figure class="border-radius-10">
                                                 <img src="{{asset('assets/imgs/shop/product-16-1.jpg')}}'" alt="product image">
@@ -133,7 +133,7 @@
                                             </div>
                                         </div>
                                         <ul class="product-meta font-xs color-grey mt-50">
-                                            <li class="mb-5">SKU: <a href="#">FWM15VKT</a></li>
+                                            <li class="mb-5">SKU: <a href="#">{{$product->sku}}</a></li>
                                             <li class="mb-5">Tags: <a href="#" rel="tag">Cloth</a>, <a href="#" rel="tag">Women</a>, <a href="#" rel="tag">Dress</a> </li>
                                             <li>Availability:<span class="in-stock text-success ml-5">8 Items In Stock</span></li>
                                         </ul>
@@ -437,8 +437,8 @@
                                                 <div class="product-img-action-wrap">
                                                     <div class="product-img product-img-zoom">
                                                         <a href="{{route('product.details',['slug'=>$rproduct->slug])}}" tabindex="0">
-                                                            <img class="default-img" src="{{asset('assets/imgs/shop/product-')}}{{$rproduct->id}}-1.jpg" alt="{{$rproduct->name}}">
-                                                            <img class="hover-img" src="{{asset('assets/imgs/shop/product-2-2.jpg')}}" alt="">
+                                                            <img class="default-img" src="{{asset('assets/imgs/products')}}/{{$product->image}}" alt="{{$rproduct->name}}">
+                                                            <img class="hover-img" src="{{asset('assets/imgs/products')}}/{{$product->image}}" alt="{{$rproduct->name}}">
                                                         </a>
                                                     </div>
                                                     <div class="product-action-1">
