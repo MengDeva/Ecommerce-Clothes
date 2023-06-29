@@ -71,8 +71,8 @@
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
                                                 <a href="{{route('product.details',['slug'=>$product->slug])}}">
-                                                    <img class="default-img" src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-1.jpg" alt="{{$product->name}}">
-                                                    <img class="hover-img" src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-2.jpg" alt="{{$product->name}}">
+                                                    <img class="default-img" src="{{asset('assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}">
+                                                    <img class="hover-img" src="{{asset('assets/imgs/products')}}/{{$product->image}}" alt="{{$product->name}}">
                                                 </a>
                                             </div>
                                             <div class="product-action-1">
@@ -87,7 +87,7 @@
                                         </div>
                                         <div class="product-content-wrap">
                                             <div class="product-category">
-                                                <a href="shop.html">Music</a>
+                                                <a href="shop.html"></a>
                                             </div>
                                             <h2><a href="product-details.html">{{$product->name}}</a></h2>
                                             <div class="rating-result" title="90%">
@@ -96,7 +96,7 @@
                                             </span>
                                             </div>
                                             <div class="product-price">
-                                                <span>${{$product->regular_price}} </span>
+                                                <span>${{$product->sell_price}} </span>
                                                 {{--                                            <span class="old-price">$245.8</span>--}}
                                             </div>
                                             <div class="product-action-1 show">

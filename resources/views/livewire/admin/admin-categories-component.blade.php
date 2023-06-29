@@ -39,31 +39,31 @@
                                 @endif
                                 <table class="table table-striped">
                                     <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Slug</th>
-                                        <th>Action</th>
-                                    </tr>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Slug</th>
+                                            <th>Action</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                    @php
-                                        $i = ($categories->currentPage()-1)*$categories->perPage();
-                                    @endphp
-                                    @foreach($categories as $category)
-                                        <tr>
-                                            <td>{{++$i}}</td>
-                                            <td>{{$category->name}}</td>
-                                            <td>{{$category->slug}}</td>
-                                            <td>
-                                                <a href="{{route('admin.category.edit',['category_id'=>$category->id])}}"
-                                                   class="text-info">Edit</a>
-                                                <a href="#" class="text-danger"
-                                                   onclick="deleteConfirmation({{$category->id}})"
-                                                   style="margin-left: 20px ">Delete</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                        @php
+                                            $i = ($categories->currentPage()-1)*$categories->perPage();
+                                        @endphp
+                                        @foreach($categories as $category)
+                                            <tr>
+                                                <td>{{++$i}}</td>
+                                                <td>{{$category->name}}</td>
+                                                <td>{{$category->slug}}</td>
+                                                <td>
+                                                    <a href="{{route('admin.category.edit',['category_id'=>$category->id])}}"
+                                                       class="text-info">Edit</a>
+                                                    <a href="#" class="text-danger"
+                                                       onclick="deleteConfirmation({{$category->id}})"
+                                                       style="margin-left: 20px ">Delete</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                                 {{$categories->links()}}
