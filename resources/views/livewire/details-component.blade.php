@@ -437,8 +437,8 @@
                                                 <div class="product-img-action-wrap">
                                                     <div class="product-img product-img-zoom">
                                                         <a href="{{route('product.details',['slug'=>$rproduct->slug])}}" tabindex="0">
-                                                            <img class="default-img" src="{{asset('assets/imgs/products')}}/{{$product->image}}" alt="{{$rproduct->name}}">
-                                                            <img class="hover-img" src="{{asset('assets/imgs/products')}}/{{$product->image}}" alt="{{$rproduct->name}}">
+                                                            <img class="default-img" src="{{asset('assets/imgs/products')}}/{{$rproduct->image}}" alt="{{$rproduct->name}}">
+                                                            <img class="hover-img" src="{{asset('assets/imgs/products')}}/{{$rproduct->image}}" alt="{{$rproduct->name}}">
                                                         </a>
                                                     </div>
                                                     <div class="product-action-1">
