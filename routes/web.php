@@ -53,6 +53,9 @@ Route::middleware(['auth', 'auth-admin'])->group(function () {
     Route::get('/admin/products', \App\Http\Livewire\Admin\AdminProductComponent::class)->name('admin.products');
     Route::get('/admin/product/add', \App\Http\Livewire\Admin\AdminAddProductComponent::class)->name('admin.product.add');
     Route::get('/admin/product/edit/{product_id}', \App\Http\Livewire\Admin\AdminEditProductComponent::class)->name('admin.product.edit');
+    Route::get('admin/slider',\App\Http\Livewire\Admin\AdminHomeSliderComponent::class)->name('admin.home.slider');
+    Route::get('admin/slider/add',\App\Http\Livewire\Admin\AdminAddHomeSlideComponent::class)->name('admin.home.slider.add');
+    Route::get('admin/slider/edit/{slide_id}',\App\Http\Livewire\Admin\AdminEditHomeSlideComponent::class)->name('admin.home.slider.edit');
 });
 
 Route::middleware('auth')->group(function () {
