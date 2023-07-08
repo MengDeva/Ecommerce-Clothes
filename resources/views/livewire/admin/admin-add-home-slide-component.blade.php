@@ -46,38 +46,38 @@
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label class="form-label">Title</label>
-                                        <input type="text" name="slug" class="form-control" placeholder="Enter Slide Title" wire:model="title"/>
+                                        <input type="text" class="form-control" placeholder="Enter Slide Title" wire:model="title"/>
                                         @error('title')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label class="form-label">SubTitle</label>
-                                        <input type="text" name="slug" class="form-control" placeholder="Enter Sub-Title" wire:model="sub_title"/>
+                                        <input type="text" class="form-control" placeholder="Enter Sub-Title" wire:model="sub_title"/>
                                         @error('sub_title')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label class="form-label">Offer</label>
-                                        <input type="text" name="slug" class="form-control" placeholder="Enter offer" wire:model="offer"/>
+                                        <input type="text" class="form-control" placeholder="Enter offer" wire:model="offer"/>
                                         @error('offer')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label class="form-label">Link</label>
-                                        <input type="text" name="slug" class="form-control" placeholder="Enter Link" wire:model="link"/>
+                                        <input type="text" class="form-control" placeholder="Enter Link" wire:model="link"/>
                                         @error('link')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label class="form-label">Status</label>
-                                        <select class="form-select" wire:model="status">
-                                            <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
-                                        </select>
+                                            <select class="form-select" wire:model="status">
+                                                <option value="1">Active</option>
+                                                <option value="0">Inactive</option>
+                                            </select>
                                         @error('status')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror

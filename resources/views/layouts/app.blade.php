@@ -94,7 +94,7 @@
                 </div>
                 <div class="header-nav d-none d-lg-flex">
                     <div class="main-categori-wrap d-none d-lg-block">
-                        <a class="categori-button-active" href="#">
+                        <a class="categori-button-active" href="{{route('shop')}}">
                             <span class="fi-rs-apps"></span> Browse Categories
                         </a>
                         <div class="categori-dropdown-wrap categori-dropdown-active-large">

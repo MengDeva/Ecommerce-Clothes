@@ -16,7 +16,7 @@ class AdminAddHomeSlideComponent extends Component
     public $sub_title;
     public $offer;
     public $link;
-    public $status;
+    public $status = '1';
     public $image;
 
     public function addSlide()
