@@ -96,8 +96,8 @@
                                     </div>
 
                                     <div class="mb-3 mt-3">
-                                        <label for="stock_status" wire:model="stock_status" class="form-label">Stock Status</label>
-                                        <select class="form-control">
+                                        <label for="stock_status" class="form-label">Stock Status</label>
+                                        <select class="form-control" wire:model="stock_status">
                                             <option value="instock">InStock</option>
                                             <option value="outofstock">OutOfStock</option>
                                         </select>
@@ -107,8 +107,8 @@
                                     </div>
 
                                     <div class="mb-3 mt-3">
-                                        <label for="featured" wire:model="featured" class="form-label">Featured</label>
-                                        <select class="form-control" name="featured">
+                                        <label for="featured" class="form-label">Featured</label>
+                                        <select class="form-control" name="featured" wire:model="featured">
                                             <option value="0">No</option>
                                             <option value="1">Yes</option>
                                         </select>
