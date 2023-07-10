@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
+use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
@@ -41,6 +42,7 @@ class AdminAddCategoryComponent extends Component
         $category->slug = $this->slug;
         $imageName = Carbon::now()->timestamp . '.' . $this->image->extension();
         $this->image->storeAs('categories', $imageName);
+        $category->image = $imageName;
         $category->is_popular;
         $category->save();
         session()->flash('message', 'Category has been created successful!');
